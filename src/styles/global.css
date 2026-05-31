@@ -27,6 +27,13 @@ body {
   line-height: 1.7;
   color: var(--fg);
   background: var(--bg);
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+
+main {
+  flex: 1;
 }
 
 img {
@@ -316,46 +323,54 @@ section.alt {
   font-weight: 700;
 }
 
-/* ── Team cards ──────────────────────────────────── */
+/* ── Team member (about page) ────────────────────── */
 
-.team-grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
-  gap: 2.5rem;
-  max-width: var(--max-width);
-  margin: 0 auto;
+.team-member {
+  max-width: 780px;
+  margin: 0 auto 4rem;
 }
 
-.team-card {
-  background: var(--bg-alt);
-  padding: 2rem;
-}
-
-.team-card img {
-  width: 100%;
-  height: 280px;
+.team-member-photo {
+  float: left;
+  width: 240px;
+  height: 320px;
   object-fit: cover;
-  margin-bottom: 1.25rem;
+  object-position: top;
+  margin: 0.25rem 2.5rem 1.5rem 0;
+  border-radius: 12px;
 }
 
-.team-card h2 {
-  font-size: 1.3rem;
+.team-member h2 {
+  font-size: 1.5rem;
   margin-bottom: 0.2rem;
 }
 
-.team-card .creds {
+.team-member .creds {
   font-size: 0.9rem;
   opacity: 0.6;
   margin-bottom: 1rem;
 }
 
-.team-card .bio {
-  font-size: 0.95rem;
-  line-height: 1.7;
+.team-member .bio {
+  font-size: 1rem;
+  line-height: 1.75;
 }
 
-.team-card .bio p {
+.team-member .bio p {
   margin-bottom: 1rem;
+}
+
+.team-member-clearfix {
+  clear: both;
+}
+
+@media (max-width: 600px) {
+  .team-member-photo {
+    float: none;
+    width: 100%;
+    height: 320px;
+    margin: 0 0 1.5rem;
+  }
 }
 
 /* ── Insurance list ──────────────────────────────── */

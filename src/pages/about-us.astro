@@ -16,19 +16,20 @@ const team = allTeam.sort((a, b) => (a.data.order ?? 99) - (b.data.order ?? 99))
   </div>
 
   <section>
-    <div class="team-grid">
+    <div class="container">
       {await Promise.all(team.map(async (member) => {
         const { Content } = await render(member);
         return (
-          <article class="team-card">
+          <article class="team-member">
             {member.data.photo && (
-              <img src={member.data.photo} alt={member.data.name} />
+              <img src={member.data.photo} alt={member.data.name} class="team-member-photo" />
             )}
             <h2>{member.data.name}</h2>
             <p class="creds">{member.data.credentials}{member.data.title ? ` · ${member.data.title}` : ''}</p>
             <div class="bio">
               <Content />
             </div>
+            <div class="team-member-clearfix"></div>
           </article>
         );
       }))}
