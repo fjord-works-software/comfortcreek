@@ -4,10 +4,16 @@
   "version": "0.0.1",
   "scripts": {
     "dev": "astro dev",
+    "dev:cms": "decap-server",
+    "dev:all": "concurrently \"npm run dev\" \"npm run dev:cms\"",
     "build": "astro build",
     "preview": "astro preview"
   },
   "dependencies": {
     "astro": "^5.0.0"
+  },
+  "devDependencies": {
+    "concurrently": "^9.2.1",
+    "decap-server": "^3.7.0"
   }
 }

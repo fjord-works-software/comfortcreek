@@ -2,6 +2,7 @@
 import Header from '../components/Header.astro';
 import Footer from '../components/Footer.astro';
 import settings from '../data/settings.json';
+import '../styles/global.css';
 
 interface Props {
   title: string;
@@ -25,8 +26,10 @@ const siteTitle = title === settings.practice_name
     <meta property="og:site_name" content={settings.practice_name} />
     <meta property="og:type" content="website" />
     {description && <meta property="og:description" content={description} />}
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Assistant:wght@400;700&display=swap" rel="stylesheet" />
     <link rel="icon" type="image/png" href="/images/logo.png" />
-    <link rel="stylesheet" href="/styles/global.css" />
   </head>
   <body>
     <Header practiceName={settings.practice_name} />

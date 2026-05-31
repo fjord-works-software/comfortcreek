@@ -1,13 +1,13 @@
+local_backend: true
+
 backend:
   name: github
-  repo: fjord-works-software/comfortcreekcounseling
+  repo: fjord-works-software/comfortcreek
   branch: main
-  # OAuth proxy — see setup instructions in README
-  base_url: https://api.netlify.com
-  auth_endpoint: auth
+  base_url: https://sveltia-cms-auth.fjordworkssoftware.workers.dev/
 
-media_folder: public/images/uploads
-public_folder: /images/uploads
+media_folder: public/images
+public_folder: /images
 
 collections:
   - name: settings
@@ -73,7 +73,9 @@ collections:
           - name: insurances
             label: Insurance Plans
             widget: list
-            field: { name: plan, label: Plan Name, widget: string }
+            fields:
+              - { name: name, label: Plan Name, widget: string }
+              - { name: logo, label: Logo Image, widget: image, required: false }
 
   - name: team
     label: Team Members

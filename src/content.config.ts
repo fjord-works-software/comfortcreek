@@ -13,7 +13,7 @@ const pages = defineCollection({
     cta_url: z.string().optional(),
     intro_heading: z.string().optional(),
     intro_body: z.string().optional(),
-    insurances: z.array(z.string()).optional(),
+    insurances: z.array(z.object({ name: z.string(), logo: z.string().optional() })).optional(),
   }),
 });
 

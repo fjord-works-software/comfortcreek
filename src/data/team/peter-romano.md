@@ -2,6 +2,7 @@
 name: Peter Romano
 credentials: LPC
 title: Owner & Licensed Professional Counselor
+photo: /images/peter-romano.jpg
 order: 1
 ---
 

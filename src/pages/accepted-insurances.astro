@@ -17,7 +17,12 @@ const page = await getEntry('pages', 'accepted-insurances');
     {page.data.insurances && page.data.insurances.length > 0 ? (
       <ul class="insurance-list">
         {page.data.insurances.map((plan) => (
-          <li>{plan}</li>
+          <li>
+            {plan.logo
+              ? <img src={plan.logo} alt={plan.name} />
+              : plan.name
+            }
+          </li>
         ))}
       </ul>
     ) : (

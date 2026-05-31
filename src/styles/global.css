@@ -1,5 +1,3 @@
-@import url('https://fonts.googleapis.com/css2?family=Assistant:wght@400;700&display=swap');
-
 :root {
   --bg: #ffffff;
   --fg: #121212;
@@ -334,19 +332,29 @@ section.alt {
 
 .insurance-list {
   list-style: none;
-  max-width: 480px;
+  max-width: 720px;
   margin: 0 auto;
-  display: flex;
-  flex-direction: column;
-  gap: 0.75rem;
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+  gap: 1.5rem;
 }
 
 .insurance-list li {
-  padding: 1.1rem 1.5rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 2rem 1.5rem;
   background: var(--bg-alt);
   font-size: 1.05rem;
   font-weight: 700;
-  border-left: 3px solid var(--fg);
+}
+
+.insurance-list li img {
+  max-width: 160px;
+  max-height: 80px;
+  width: 100%;
+  height: auto;
+  object-fit: contain;
 }
 
 /* ── Contact form ────────────────────────────────── */
