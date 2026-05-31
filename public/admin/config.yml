@@ -41,13 +41,6 @@ collections:
           - { name: intro_heading, label: Intro Section Heading, widget: string }
           - { name: intro_body, label: Intro Section Body, widget: text }
 
-      - name: about-us
-        label: About Us
-        file: src/data/pages/about-us.md
-        fields:
-          - { name: title, label: Page Title, widget: string }
-          - { name: intro, label: Intro Paragraph, widget: text, required: false }
-
       - name: services
         label: Services
         file: src/data/pages/services.md
@@ -55,14 +48,6 @@ collections:
           - { name: title, label: Page Title, widget: string }
           - { name: intro, label: Intro Paragraph, widget: text }
           - { name: body, label: Services Content, widget: markdown }
-
-      - name: contact
-        label: Contact
-        file: src/data/pages/contact.md
-        fields:
-          - { name: title, label: Page Title, widget: string }
-          - { name: intro, label: Intro Text, widget: text }
-          - { name: email, label: Contact Email (overrides site setting), widget: string, required: false }
 
       - name: accepted-insurances
         label: Accepted Insurances
@@ -76,6 +61,28 @@ collections:
             fields:
               - { name: name, label: Plan Name, widget: string }
               - { name: logo, label: Logo Image, widget: image, required: false }
+
+      - name: about-us
+        label: About Us
+        file: src/data/pages/about-us.md
+        fields:
+          - { name: title, label: Page Title, widget: string }
+          - { name: intro, label: Intro Paragraph, widget: text, required: false }
+
+      - name: contact
+        label: Contact
+        file: src/data/pages/contact.md
+        fields:
+          - { name: title, label: Page Title, widget: string }
+          - { name: intro, label: Intro Text, widget: text }
+          - { name: email, label: Contact Email (overrides site setting), widget: string, required: false }
+
+      - name: privacy-policy
+        label: Privacy Policy
+        file: src/data/pages/privacy-policy.md
+        fields:
+          - { name: title, label: Page Title, widget: string }
+          - { name: body, label: Content, widget: markdown }
 
   - name: team
     label: Team Members

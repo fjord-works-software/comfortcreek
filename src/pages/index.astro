@@ -10,13 +10,17 @@ const { hero_heading, hero_subtext, cta_label, cta_url, intro_heading, intro_bod
   title={settings.practice_name}
   description={hero_subtext}
 >
-  <section class="hero">
+  <section class="hero-wrapper">
+  <div class="hero">
     <img src="/images/logo.png" alt={settings.practice_name} class="hero-logo" />
-    <h1>{hero_heading}</h1>
-    <p>{hero_subtext}</p>
-    {cta_label && cta_url && (
-      <a href={cta_url} class="btn">{cta_label}</a>
-    )}
+    <div class="hero-text">
+      <h1>{hero_heading}</h1>
+      <p>{hero_subtext}</p>
+      {cta_label && cta_url && (
+        <a href={cta_url} class="btn">{cta_label}</a>
+      )}
+    </div>
+  </div>
   </section>
 
   {intro_heading && (
