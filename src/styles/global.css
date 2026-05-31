@@ -181,20 +181,20 @@ section.alt {
 /* ── Hero ────────────────────────────────────────── */
 
 .hero-wrapper {
-  background: var(--bg-alt);
+  background: #4a85a0;
 }
 
 .hero {
   display: flex;
   align-items: center;
   gap: 4rem;
-  padding: 5rem 4rem;
+  padding: 1.25rem 4rem;
   max-width: var(--max-width);
   margin: 0 auto;
 }
 
 .hero-logo {
-  width: 260px;
+  width: 320px;
   flex-shrink: 0;
   height: auto;
 }
@@ -206,6 +206,10 @@ section.alt {
   gap: 1.25rem;
 }
 
+.hero-text {
+  color: #ffffff;
+}
+
 .hero-text h1 {
   font-size: clamp(1.8rem, 3.5vw, 2.6rem);
   line-height: 1.2;
@@ -213,7 +217,7 @@ section.alt {
 
 .hero-text p {
   font-size: 1.1rem;
-  opacity: 0.75;
+  opacity: 0.85;
   max-width: 520px;
 }
 
@@ -267,8 +271,9 @@ section.alt {
 
 .page-header {
   padding: 4rem 2rem 3rem;
-  background: var(--bg-alt);
-  border-bottom: 1px solid var(--border);
+  background: #4a85a0;
+  color: #ffffff;
+  border-bottom: none;
 }
 
 .page-header h1 {
@@ -281,7 +286,7 @@ section.alt {
   max-width: var(--max-width);
   margin: 1rem auto 0;
   font-size: 1.05rem;
-  opacity: 0.75;
+  opacity: 0.85;
 }
 
 /* ── Prose ───────────────────────────────────────── */
