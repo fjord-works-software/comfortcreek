@@ -1,0 +1,38 @@
+---
+import Header from '../components/Header.astro';
+import Footer from '../components/Footer.astro';
+import settings from '../data/settings.json';
+
+interface Props {
+  title: string;
+  description?: string;
+}
+
+const { title, description } = Astro.props;
+const siteTitle = title === settings.practice_name
+  ? title
+  : `${title} — ${settings.practice_name}`;
+---
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="theme-color" content="#ffffff" />
+    <title>{siteTitle}</title>
+    {description && <meta name="description" content={description} />}
+    <meta property="og:title" content={siteTitle} />
+    <meta property="og:site_name" content={settings.practice_name} />
+    <meta property="og:type" content="website" />
+    {description && <meta property="og:description" content={description} />}
+    <link rel="icon" type="image/png" href="/images/logo.png" />
+    <link rel="stylesheet" href="/styles/global.css" />
+  </head>
+  <body>
+    <Header practiceName={settings.practice_name} />
+    <main>
+      <slot />
+    </main>
+    <Footer practiceName={settings.practice_name} email={settings.email} />
+  </body>
+</html>

@@ -1,0 +1,37 @@
+---
+import { getEntry, getCollection, render } from 'astro:content';
+import Layout from '../layouts/Layout.astro';
+
+const page = await getEntry('pages', 'about-us');
+const allTeam = await getCollection('team');
+const team = allTeam.sort((a, b) => (a.data.order ?? 99) - (b.data.order ?? 99));
+---
+<Layout
+  title={page.data.title}
+  description={page.data.intro}
+>
+  <div class="page-header">
+    <h1>{page.data.title}</h1>
+    {page.data.intro && <p class="intro">{page.data.intro}</p>}
+  </div>
+
+  <section>
+    <div class="team-grid">
+      {await Promise.all(team.map(async (member) => {
+        const { Content } = await render(member);
+        return (
+          <article class="team-card">
+            {member.data.photo && (
+              <img src={member.data.photo} alt={member.data.name} />
+            )}
+            <h2>{member.data.name}</h2>
+            <p class="creds">{member.data.credentials}{member.data.title ? ` · ${member.data.title}` : ''}</p>
+            <div class="bio">
+              <Content />
+            </div>
+          </article>
+        );
+      }))}
+    </div>
+  </section>
+</Layout>

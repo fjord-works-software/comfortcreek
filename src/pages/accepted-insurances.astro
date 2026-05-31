@@ -1,0 +1,35 @@
+---
+import { getEntry } from 'astro:content';
+import Layout from '../layouts/Layout.astro';
+
+const page = await getEntry('pages', 'accepted-insurances');
+---
+<Layout
+  title={page.data.title}
+  description={page.data.intro}
+>
+  <div class="page-header">
+    <h1>{page.data.title}</h1>
+    {page.data.intro && <p class="intro">{page.data.intro}</p>}
+  </div>
+
+  <section>
+    {page.data.insurances && page.data.insurances.length > 0 ? (
+      <ul class="insurance-list">
+        {page.data.insurances.map((plan) => (
+          <li>{plan}</li>
+        ))}
+      </ul>
+    ) : (
+      <p class="container">No insurance plans listed yet.</p>
+    )}
+  </section>
+
+  <section class="alt">
+    <div class="container text-center">
+      <h2 style="font-size: 1.4rem; margin-bottom: 0.75rem;">Don't see your insurance?</h2>
+      <p style="margin-bottom: 1.5rem; opacity: 0.8;">Contact us to discuss out-of-pocket rates and sliding scale options.</p>
+      <a href="/contact" class="btn">Contact Us</a>
+    </div>
+  </section>
+</Layout>

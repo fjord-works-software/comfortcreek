@@ -1,0 +1,101 @@
+backend:
+  name: github
+  repo: fjord-works-software/comfortcreekcounseling
+  branch: main
+  # OAuth proxy — see setup instructions in README
+  base_url: https://api.netlify.com
+  auth_endpoint: auth
+
+media_folder: public/images/uploads
+public_folder: /images/uploads
+
+collections:
+  - name: settings
+    label: Site Settings
+    files:
+      - name: general
+        label: General Settings
+        file: src/data/settings.json
+        extension: json
+        format: json
+        fields:
+          - { name: practice_name, label: Practice Name, widget: string }
+          - { name: tagline, label: Tagline, widget: string }
+          - { name: email, label: Contact Email, widget: string }
+          - { name: phone, label: Phone Number, widget: string, required: false }
+          - { name: address, label: Location, widget: string }
+          - { name: web3forms_key, label: Web3Forms Access Key, widget: string, required: false, hint: "Get your free key at web3forms.com" }
+
+  - name: pages
+    label: Pages
+    files:
+      - name: home
+        label: Home Page
+        file: src/data/pages/home.md
+        fields:
+          - { name: title, label: Page Title, widget: string }
+          - { name: hero_heading, label: Hero Heading, widget: string }
+          - { name: hero_subtext, label: Hero Subtext, widget: text }
+          - { name: cta_label, label: Button Label, widget: string }
+          - { name: cta_url, label: Button URL, widget: string }
+          - { name: intro_heading, label: Intro Section Heading, widget: string }
+          - { name: intro_body, label: Intro Section Body, widget: text }
+
+      - name: about-us
+        label: About Us
+        file: src/data/pages/about-us.md
+        fields:
+          - { name: title, label: Page Title, widget: string }
+          - { name: intro, label: Intro Paragraph, widget: text, required: false }
+
+      - name: services
+        label: Services
+        file: src/data/pages/services.md
+        fields:
+          - { name: title, label: Page Title, widget: string }
+          - { name: intro, label: Intro Paragraph, widget: text }
+          - { name: body, label: Services Content, widget: markdown }
+
+      - name: contact
+        label: Contact
+        file: src/data/pages/contact.md
+        fields:
+          - { name: title, label: Page Title, widget: string }
+          - { name: intro, label: Intro Text, widget: text }
+          - { name: email, label: Contact Email (overrides site setting), widget: string, required: false }
+
+      - name: accepted-insurances
+        label: Accepted Insurances
+        file: src/data/pages/accepted-insurances.md
+        fields:
+          - { name: title, label: Page Title, widget: string }
+          - { name: intro, label: Intro Text, widget: text }
+          - name: insurances
+            label: Insurance Plans
+            widget: list
+            field: { name: plan, label: Plan Name, widget: string }
+
+  - name: team
+    label: Team Members
+    folder: src/data/team
+    create: true
+    slug: "{{fields.name | slugify}}"
+    fields:
+      - { name: name, label: Full Name, widget: string }
+      - { name: credentials, label: Credentials, widget: string, hint: "e.g., LPC, LCSW, PhD" }
+      - { name: title, label: Job Title, widget: string, required: false }
+      - { name: photo, label: Photo, widget: image, required: false }
+      - { name: order, label: Display Order, widget: number, value_type: int, required: false, hint: "Lower numbers appear first" }
+      - { name: body, label: Bio, widget: markdown }
+
+  - name: blog
+    label: Blog Posts
+    folder: src/data/blog
+    create: true
+    slug: "{{year}}-{{month}}-{{day}}-{{slug}}"
+    fields:
+      - { name: title, label: Title, widget: string }
+      - { name: pubDate, label: Publish Date, widget: datetime }
+      - { name: description, label: Description, widget: text, required: false, hint: "Shown in post listings and search previews" }
+      - { name: draft, label: Draft, widget: boolean, default: false }
+      - { name: body, label: Content, widget: markdown }

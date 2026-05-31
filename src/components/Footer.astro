@@ -1,0 +1,17 @@
+---
+interface Props {
+  practiceName: string;
+  email: string;
+}
+const { practiceName, email } = Astro.props;
+const year = new Date().getFullYear();
+---
+<footer class="site-footer">
+  <div class="footer-inner">
+    <p>&copy; {year} {practiceName}</p>
+    {email && (
+      <a href={`mailto:${email}`}>{email}</a>
+    )}
+    <a href="/privacy-policy">Privacy Policy</a>
+  </div>
+</footer>

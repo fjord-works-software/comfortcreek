@@ -1,0 +1,43 @@
+---
+interface Props {
+  practiceName: string;
+}
+const { practiceName } = Astro.props;
+
+const nav = [
+  { label: 'Home', href: '/' },
+  { label: 'Services', href: '/services' },
+  { label: 'Accepted Insurances', href: '/accepted-insurances' },
+  { label: 'About Us', href: '/about-us' },
+  { label: 'Contact', href: '/contact' },
+];
+
+const current = Astro.url.pathname;
+---
+<header class="site-header">
+  <div class="nav-inner">
+    <a href="/" class="nav-logo" aria-label={practiceName}>
+      <img src="/images/logo.png" alt={practiceName} />
+    </a>
+
+    <input type="checkbox" id="nav-toggle" class="nav-toggle" aria-hidden="true" />
+    <label for="nav-toggle" class="nav-burger" aria-label="Toggle navigation">
+      <span></span>
+      <span></span>
+      <span></span>
+    </label>
+
+    <ul class="nav-links" role="list">
+      {nav.map(({ label, href }) => (
+        <li>
+          <a
+            href={href}
+            aria-current={current === href || (href !== '/' && current.startsWith(href)) ? 'page' : undefined}
+          >
+            {label}
+          </a>
+        </li>
+      ))}
+    </ul>
+  </div>
+</header>

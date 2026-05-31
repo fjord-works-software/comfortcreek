@@ -1,0 +1,31 @@
+---
+import { getEntry } from 'astro:content';
+import Layout from '../layouts/Layout.astro';
+import settings from '../data/settings.json';
+
+const page = await getEntry('pages', 'home');
+const { hero_heading, hero_subtext, cta_label, cta_url, intro_heading, intro_body } = page.data;
+---
+<Layout
+  title={settings.practice_name}
+  description={hero_subtext}
+>
+  <section class="hero">
+    <img src="/images/logo.png" alt={settings.practice_name} class="hero-logo" />
+    <h1>{hero_heading}</h1>
+    <p>{hero_subtext}</p>
+    {cta_label && cta_url && (
+      <a href={cta_url} class="btn">{cta_label}</a>
+    )}
+  </section>
+
+  {intro_heading && (
+    <section>
+      <div class="container text-center">
+        <h2 style="font-size: clamp(1.4rem, 2.5vw, 1.8rem); margin-bottom: 1rem;">{intro_heading}</h2>
+        <p style="max-width: 640px; margin: 0 auto; font-size: 1.05rem; opacity: 0.8;">{intro_body}</p>
+        <a href="/services" class="btn btn-outline mt-2">View Services</a>
+      </div>
+    </section>
+  )}
+</Layout>
