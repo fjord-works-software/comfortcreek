@@ -3,6 +3,7 @@ import { getEntry, getCollection, render } from 'astro:content';
 import Layout from '../layouts/Layout.astro';
 import PageHeader from '../components/PageHeader.astro';
 
+const base = import.meta.env.BASE_URL;
 const page = await getEntry('pages', 'about-us');
 if (!page) throw new Error('Missing content: pages/about-us');
 const allTeam = await getCollection('team');
@@ -21,7 +22,7 @@ const team = allTeam.sort((a, b) => (a.data.order ?? 99) - (b.data.order ?? 99))
         return (
           <article class="max-w-[780px] mx-auto mb-16">
             {member.data.photo && (
-              <img src={member.data.photo} alt={member.data.name} class="team-member-photo" />
+              <img src={`${base}${member.data.photo.slice(1)}`} alt={member.data.name} class="team-member-photo" />
             )}
             <h2 class="text-2xl mb-1">{member.data.name}</h2>
             <p class="text-[0.9rem] opacity-60 mb-4">{member.data.credentials}{member.data.title ? ` · ${member.data.title}` : ''}</p>

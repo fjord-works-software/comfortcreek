@@ -19,7 +19,7 @@ if (!page) throw new Error('Missing content: pages/accepted-insurances');
         {page.data.insurances.map((plan) => (
           <li class="flex items-center justify-center p-8 px-6 bg-bg-alt text-[1.05rem] font-bold">
             {plan.logo
-              ? <img src={plan.logo} alt={plan.name} class="max-w-[160px] max-h-[80px] w-full h-auto object-contain" />
+              ? <img src={`${base}${plan.logo.slice(1)}`} alt={plan.name} class="max-w-[160px] max-h-[80px] w-full h-auto object-contain" />
               : plan.name
             }
           </li>
