@@ -5,6 +5,7 @@ import PageHeader from '../components/PageHeader.astro';
 import settings from '../data/settings.json';
 
 const page = await getEntry('pages', 'contact');
+if (!page) throw new Error('Missing content: pages/contact');
 const email = page.data.email ?? settings.email;
 ---
 <Layout

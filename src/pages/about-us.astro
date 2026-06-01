@@ -4,6 +4,7 @@ import Layout from '../layouts/Layout.astro';
 import PageHeader from '../components/PageHeader.astro';
 
 const page = await getEntry('pages', 'about-us');
+if (!page) throw new Error('Missing content: pages/about-us');
 const allTeam = await getCollection('team');
 const team = allTeam.sort((a, b) => (a.data.order ?? 99) - (b.data.order ?? 99));
 ---

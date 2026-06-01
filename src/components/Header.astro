@@ -4,20 +4,21 @@ interface Props {
 }
 const { practiceName } = Astro.props;
 
+const base = import.meta.env.BASE_URL;
 const nav = [
-  { label: 'Home', href: '/' },
-  { label: 'Services', href: '/services' },
-  { label: 'Accepted Insurances', href: '/accepted-insurances' },
-  { label: 'About Us', href: '/about-us' },
-  { label: 'Contact', href: '/contact' },
+  { label: 'Home', href: base },
+  { label: 'Services', href: `${base}services` },
+  { label: 'Accepted Insurances', href: `${base}accepted-insurances` },
+  { label: 'About Us', href: `${base}about-us` },
+  { label: 'Contact', href: `${base}contact` },
 ];
 
 const current = Astro.url.pathname;
 ---
 <header class="site-header sticky top-0 z-[100] bg-white border-b border-black/[0.12] h-[64px]">
   <div class="nav-inner max-w-[1100px] mx-auto px-8 h-full flex items-center justify-between gap-8">
-    <a href="/" class="nav-logo hover:no-underline" aria-label={practiceName}>
-      <img src="/images/logo.png" alt={practiceName} class="h-[44px] w-auto" />
+    <a href={base} class="nav-logo hover:no-underline" aria-label={practiceName}>
+      <img src={`${base}images/logo.png`} alt={practiceName} class="h-[44px] w-auto" />
     </a>
 
     <input type="checkbox" id="nav-toggle" class="nav-toggle" aria-hidden="true" />
@@ -33,7 +34,7 @@ const current = Astro.url.pathname;
           <a
             href={href}
             class="text-[0.95rem] tracking-[0.02em] transition-opacity duration-150 hover:opacity-60 hover:no-underline"
-            aria-current={current === href || (href !== '/' && current.startsWith(href)) ? 'page' : undefined}
+            aria-current={current === href || (href !== base && current.startsWith(href)) ? 'page' : undefined}
           >
             {label}
           </a>

@@ -4,6 +4,7 @@ import Layout from '../layouts/Layout.astro';
 import PageHeader from '../components/PageHeader.astro';
 
 const page = await getEntry('pages', 'services');
+if (!page) throw new Error('Missing content: pages/services');
 const { Content } = await render(page);
 ---
 <Layout
