@@ -77,13 +77,6 @@ collections:
           - { name: intro, label: Intro Text, widget: text }
           - { name: email, label: Contact Email (overrides site setting), widget: string, required: false }
 
-      - name: privacy-policy
-        label: Privacy Policy
-        file: src/data/pages/privacy-policy.md
-        fields:
-          - { name: title, label: Page Title, widget: string }
-          - { name: body, label: Content, widget: markdown }
-
   - name: team
     label: Team Members
     folder: src/data/team
