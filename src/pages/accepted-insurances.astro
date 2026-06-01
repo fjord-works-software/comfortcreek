@@ -1,6 +1,7 @@
 ---
 import { getEntry } from 'astro:content';
 import Layout from '../layouts/Layout.astro';
+import PageHeader from '../components/PageHeader.astro';
 
 const page = await getEntry('pages', 'accepted-insurances');
 ---
@@ -8,13 +9,10 @@ const page = await getEntry('pages', 'accepted-insurances');
   title={page.data.title}
   description={page.data.intro}
 >
-  <div class="page-header">
-    <h1>{page.data.title}</h1>
-    {page.data.intro && <p class="intro">{page.data.intro}</p>}
-  </div>
+  <PageHeader title={page.data.title} intro={page.data.intro} />
 
   <section>
-    {page.data.insurances && page.data.insurances.length > 0 ? (
+    {page.data.insurances?.length ? (
       <ul class="insurance-list">
         {page.data.insurances.map((plan) => (
           <li>

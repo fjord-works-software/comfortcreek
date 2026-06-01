@@ -1,6 +1,8 @@
 ---
 import { getCollection, render } from 'astro:content';
 import Layout from '../../layouts/Layout.astro';
+import PageHeader from '../../components/PageHeader.astro';
+import { formatDate } from '../../utils/formatDate';
 
 export async function getStaticPaths() {
   const posts = await getCollection('blog', p => !p.data.draft);
@@ -14,12 +16,7 @@ const { post } = Astro.props;
 const { Content } = await render(post);
 ---
 <Layout title={post.data.title} description={post.data.description}>
-  <div class="page-header">
-    <h1>{post.data.title}</h1>
-    <p class="intro">
-      {post.data.pubDate.toLocaleDateString('en-US', { year: 'numeric', month: 'long', day: 'numeric' })}
-    </p>
-  </div>
+  <PageHeader title={post.data.title} intro={formatDate(post.data.pubDate)} />
 
   <section>
     <div class="prose">
