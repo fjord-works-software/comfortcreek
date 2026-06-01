@@ -5,7 +5,7 @@ interface Props {
 }
 const { title, intro } = Astro.props;
 ---
-<div class="page-header">
-  <h1>{title}</h1>
-  {intro && <p class="intro">{intro}</p>}
+<div class="bg-brand text-white px-8 pt-16 pb-12">
+  <h1 class="text-[clamp(1.8rem,3.5vw,2.5rem)] max-w-[1100px] mx-auto">{title}</h1>
+  {intro && <p class="max-w-[1100px] mx-auto mt-4 text-[1.05rem] opacity-85">{intro}</p>}
 </div>

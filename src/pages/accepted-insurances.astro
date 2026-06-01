@@ -11,28 +11,28 @@ const page = await getEntry('pages', 'accepted-insurances');
 >
   <PageHeader title={page.data.title} intro={page.data.intro} />
 
-  <section>
+  <section class="py-20 px-8">
     {page.data.insurances?.length ? (
-      <ul class="insurance-list">
+      <ul class="list-none max-w-[720px] mx-auto grid grid-cols-[repeat(auto-fill,minmax(200px,1fr))] gap-6">
         {page.data.insurances.map((plan) => (
-          <li>
+          <li class="flex items-center justify-center p-8 px-6 bg-bg-alt text-[1.05rem] font-bold">
             {plan.logo
-              ? <img src={plan.logo} alt={plan.name} />
+              ? <img src={plan.logo} alt={plan.name} class="max-w-[160px] max-h-[80px] w-full h-auto object-contain" />
               : plan.name
             }
           </li>
         ))}
       </ul>
     ) : (
-      <p class="container">No insurance plans listed yet.</p>
+      <p class="max-w-[1100px] mx-auto px-8">No insurance plans listed yet.</p>
     )}
   </section>
 
-  <section class="alt">
-    <div class="container text-center">
-      <h2 style="font-size: 1.4rem; margin-bottom: 0.75rem;">Don't see your insurance?</h2>
-      <p style="margin-bottom: 1.5rem; opacity: 0.8;">Contact us to discuss out-of-pocket rates and sliding scale options.</p>
-      <a href="/contact" class="btn">Contact Us</a>
+  <section class="py-20 px-8 bg-bg-alt">
+    <div class="max-w-[1100px] mx-auto text-center">
+      <h2 class="text-[1.4rem] mb-3">Don't see your insurance?</h2>
+      <p class="mb-6 opacity-80">Contact us to discuss out-of-pocket rates and sliding scale options.</p>
+      <a href="/contact" class="inline-block px-8 py-[0.8rem] bg-[#121212] text-white font-bold text-[0.95rem] tracking-[0.04em] uppercase transition-opacity duration-150 hover:opacity-80 hover:no-underline">Contact Us</a>
     </div>
   </section>
 </Layout>

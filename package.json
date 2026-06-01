@@ -2,15 +2,23 @@
   "name": "comfortcreekcounseling",
   "type": "module",
   "version": "0.0.1",
+  "engines": {
+    "node": ">=22.12.0"
+  },
   "scripts": {
     "dev": "astro dev",
     "dev:cms": "decap-server",
     "dev:all": "concurrently \"npm run dev\" \"npm run dev:cms\"",
     "build": "astro build",
-    "preview": "astro preview"
+    "preview": "astro preview",
+    "astro": "astro"
   },
   "dependencies": {
-    "astro": "^5.0.0"
+    "@astrojs/sitemap": "^3.7.3",
+    "@tailwindcss/typography": "^0.5.19",
+    "@tailwindcss/vite": "^4.3.0",
+    "astro": "^6.4.2",
+    "tailwindcss": "^4.3.0"
   },
   "devDependencies": {
     "concurrently": "^9.2.1",

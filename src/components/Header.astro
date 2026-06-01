@@ -14,10 +14,10 @@ const nav = [
 
 const current = Astro.url.pathname;
 ---
-<header class="site-header">
-  <div class="nav-inner">
-    <a href="/" class="nav-logo" aria-label={practiceName}>
-      <img src="/images/logo.png" alt={practiceName} />
+<header class="site-header sticky top-0 z-[100] bg-white border-b border-black/[0.12] h-[64px]">
+  <div class="nav-inner max-w-[1100px] mx-auto px-8 h-full flex items-center justify-between gap-8">
+    <a href="/" class="nav-logo hover:no-underline" aria-label={practiceName}>
+      <img src="/images/logo.png" alt={practiceName} class="h-[44px] w-auto" />
     </a>
 
     <input type="checkbox" id="nav-toggle" class="nav-toggle" aria-hidden="true" />
@@ -27,11 +27,12 @@ const current = Astro.url.pathname;
       <span></span>
     </label>
 
-    <ul class="nav-links" role="list">
+    <ul class="nav-links flex list-none gap-10 items-center" role="list">
       {nav.map(({ label, href }) => (
         <li>
           <a
             href={href}
+            class="text-[0.95rem] tracking-[0.02em] transition-opacity duration-150 hover:opacity-60 hover:no-underline"
             aria-current={current === href || (href !== '/' && current.startsWith(href)) ? 'page' : undefined}
           >
             {label}

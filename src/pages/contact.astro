@@ -13,23 +13,23 @@ const email = page.data.email ?? settings.email;
 >
   <PageHeader title={page.data.title} intro={page.data.intro} />
 
-  <section>
-    <div class="contact-layout">
-      <div class="contact-info">
-        <h2>Get in Touch</h2>
-        <p>
+  <section class="py-20 px-8">
+    <div class="grid grid-cols-2 gap-16 max-w-[1100px] mx-auto max-sm:grid-cols-1 max-sm:gap-10">
+      <div>
+        <h2 class="text-[1.3rem] mb-4">Get in Touch</h2>
+        <p class="mb-3 text-base">
           You can also reach us directly by email:
         </p>
-        <p>
-          <a href={`mailto:${email}`}>{email}</a>
+        <p class="mb-3 text-base">
+          <a href={`mailto:${email}`} class="underline">{email}</a>
         </p>
         {settings.phone && (
-          <p>
-            <a href={`tel:${settings.phone}`}>{settings.phone}</a>
+          <p class="mb-3 text-base">
+            <a href={`tel:${settings.phone}`} class="underline">{settings.phone}</a>
           </p>
         )}
         {settings.address && (
-          <p>{settings.address}</p>
+          <p class="mb-3 text-base">{settings.address}</p>
         )}
       </div>
 
@@ -38,37 +38,37 @@ const email = page.data.email ?? settings.email;
           <form
             action="https://api.web3forms.com/submit"
             method="POST"
-            class="contact-form"
+            class="flex flex-col gap-5"
           >
             <input type="hidden" name="access_key" value={settings.web3forms_key} />
             <input type="hidden" name="subject" value={`New message from ${settings.practice_name} website`} />
             <input type="checkbox" name="botcheck" style="display:none" />
 
-            <div class="field-group">
-              <label for="name">Name</label>
-              <input type="text" id="name" name="name" required />
+            <div class="flex flex-col gap-[0.4rem]">
+              <label for="name" class="text-[0.875rem] font-bold tracking-[0.04em] uppercase">Name</label>
+              <input type="text" id="name" name="name" required class="font-[inherit] text-base px-4 py-3 border border-black/[0.12] bg-white text-[#121212] w-full transition-colors duration-150 focus:outline-none focus:border-[#121212]" />
             </div>
 
-            <div class="field-group">
-              <label for="email">Email <span aria-hidden="true">*</span></label>
-              <input type="email" id="email" name="email" required />
+            <div class="flex flex-col gap-[0.4rem]">
+              <label for="email" class="text-[0.875rem] font-bold tracking-[0.04em] uppercase">Email <span aria-hidden="true">*</span></label>
+              <input type="email" id="email" name="email" required class="font-[inherit] text-base px-4 py-3 border border-black/[0.12] bg-white text-[#121212] w-full transition-colors duration-150 focus:outline-none focus:border-[#121212]" />
             </div>
 
-            <div class="field-group">
-              <label for="phone">Phone</label>
-              <input type="tel" id="phone" name="phone" />
+            <div class="flex flex-col gap-[0.4rem]">
+              <label for="phone" class="text-[0.875rem] font-bold tracking-[0.04em] uppercase">Phone</label>
+              <input type="tel" id="phone" name="phone" class="font-[inherit] text-base px-4 py-3 border border-black/[0.12] bg-white text-[#121212] w-full transition-colors duration-150 focus:outline-none focus:border-[#121212]" />
             </div>
 
-            <div class="field-group">
-              <label for="message">Message</label>
-              <textarea id="message" name="message" required></textarea>
+            <div class="flex flex-col gap-[0.4rem]">
+              <label for="message" class="text-[0.875rem] font-bold tracking-[0.04em] uppercase">Message</label>
+              <textarea id="message" name="message" required class="font-[inherit] text-base px-4 py-3 border border-black/[0.12] bg-white text-[#121212] w-full transition-colors duration-150 focus:outline-none focus:border-[#121212] min-h-[140px] resize-y"></textarea>
             </div>
 
-            <button type="submit" class="btn">Send Message</button>
+            <button type="submit" class="inline-block px-8 py-[0.8rem] bg-[#121212] text-white font-bold text-[0.95rem] tracking-[0.04em] uppercase border-none cursor-pointer transition-opacity duration-150 hover:opacity-80">Send Message</button>
           </form>
         ) : (
           <div class="form-warning">
-            <p>Contact form is not yet configured. Please email us directly at <a href={`mailto:${email}`}>{email}</a>.</p>
+            <p>Contact form is not yet configured. Please email us directly at <a href={`mailto:${email}`} class="underline">{email}</a>.</p>
             <p class="form-warning-hint">Site admin: add your Web3Forms access key in Site Settings via the CMS.</p>
           </div>
         )}

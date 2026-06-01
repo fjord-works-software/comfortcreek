@@ -18,8 +18,8 @@ const { Content } = await render(post);
 <Layout title={post.data.title} description={post.data.description}>
   <PageHeader title={post.data.title} intro={formatDate(post.data.pubDate)} />
 
-  <section>
-    <div class="prose">
+  <section class="py-20 px-8">
+    <div class="prose mx-auto">
       <Content />
     </div>
   </section>
