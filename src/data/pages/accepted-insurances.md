@@ -8,4 +8,8 @@ insurances:
     logo: /images/ambetter.png
   - name: Qual Choice
     logo: /images/qualchoice.png
+  - name: Aetna
+    logo: /images/aetna.png
+  - name: United Healthcare
+    logo: /images/unitedhealthcare.png
 ---

@@ -15,7 +15,7 @@ intro: We offer trauma-informed therapeutic counseling designed to support indiv
 
 ## Experiential Therapy
 
-In partnership with [Pathtaker](https://pathtaker.org), a 501(c)(3) nonprofit, we provide outdoor therapeutic experiences like Backcountry Backpacking. These nature-based sessions offer immersive healing and personal growth in the wilderness.
+In partnership with [Pathtaker](https://pathtaker.org), a 501(c)(3) nonprofit, and [Seeds of Change](https://www.seedsofchanges.org) we provide outdoor therapeutic experiences like Backcountry Backpacking. These nature-based sessions offer immersive healing and personal growth in the wilderness.
 
 ## Holistic Wellness Collective
 
@@ -24,5 +24,6 @@ We are proud members of the Seeds of Change Therapy Collective — a collaborati
 - Licensed Mental Health Therapists
 - Yoga Instructors
 - Massage Therapists
+- Brainspotting Trained
 
 Together, we provide holistic, integrated care that nurtures both mind and body.
